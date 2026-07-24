@@ -1,0 +1,42 @@
+<?php
+
+return [
+    'login' => [
+        'title' => 'Sign in to admin panel',
+        'heading' => 'Sign in to your account',
+        'login_mode' => 'Login Mode',
+        'mode_password' => 'Login with Password',
+        'mode_otp' => 'Login with SMS (OTP)',
+        'mobile' => 'Mobile Number',
+        'mobile_placeholder' => '09123456789',
+        'password' => 'Password',
+        'remember_me' => 'Remember me',
+        'send_code' => 'Send Verification Code',
+        'login' => 'Login',
+        'code_sent_to' => 'Code sent to: :mobile',
+        'change_number' => 'Change number',
+        'otp_code' => 'One-Time Verification Code',
+        'resend_wait' => 'Resend code available in :seconds seconds',
+        'resend_code' => 'Resend verification code',
+        'validation' => [
+            'mobile_required' => 'Please enter your mobile number.',
+            'mobile_regex' => 'Invalid mobile number format (e.g. 09123456789).',
+            'user_not_found' => 'Active account with this mobile number was not found.',
+            'access_denied' => 'Your account is disabled.',
+            'otp_required' => 'Please enter the verification code.',
+            'otp_digits' => 'Verification code must be :digits digits.',
+            'password_required' => 'Please enter your password.',
+            'credentials_incorrect' => 'Incorrect mobile number or password.',
+            'otp_incorrect' => 'Invalid verification code.',
+            'too_many_attempts' => 'Too many failed login attempts. Please try again in :seconds seconds.',
+        ],
+        'notifications' => [
+            'code_sent_title' => 'Verification Code Sent',
+            'code_sent_body' => 'A one-time verification code has been sent to your mobile.',
+            'send_error_title' => 'Error Sending Code',
+            'send_error_body' => 'Unable to send verification code.',
+            'demo_otp_title' => 'Login Verification Code: :code',
+            'demo_otp_body' => 'Recipient mobile: :mobile',
+        ],
+    ],
+];
