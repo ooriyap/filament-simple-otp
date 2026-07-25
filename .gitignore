@@ -1,0 +1,16 @@
+/node_modules/
+/vendor/
+.DS_Store
+.idea/
+.vscode/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.phpunit.result.cache
+.env
+.env.backup
+.env.*.local
+
+# Build assets (keep compiled CSS if distributed with repository, ignore local node artifacts)
+# resources/css/filament-simple-otp.compiled.css is committed if required, but node modules and temporary build caches are ignored.

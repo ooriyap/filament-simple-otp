@@ -10,10 +10,11 @@ class OtpService
 {
     public function generateCode(int $length = 6): string
     {
-        $min = (int) pow(10, $length - 1);
+        $length = max(1, $length);
+        $min = 0;
         $max = (int) pow(10, $length) - 1;
 
-        return (string) random_int($min, $max);
+        return str_pad((string) random_int($min, $max), $length, '0', STR_PAD_LEFT);
     }
 
     public function canSend(string $mobile, int $resendAttempts = 3, int $resendDecaySeconds = 300): bool
@@ -146,6 +147,7 @@ class OtpService
 
         Cache::forget($cacheKey);
         RateLimiter::clear('simple_otp_verify:'.$mobile);
+        RateLimiter::clear('simple_otp_resend:'.$mobile);
 
         return [
             'success' => true,

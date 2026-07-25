@@ -17,8 +17,7 @@
             @if (!$codeSent)
                 <form wire:submit="sendOtpCode" class="space-y-6">
                     <div>
-                        <label for="mobile"
-                            class="fi-fo-field-wrp-label block text-sm font-medium text-gray-950 dark:text-white mb-2">
+                        <label for="mobile" class="block text-sm font-medium text-gray-700 dark:text-gray-200 mb-2">
                             {{ __('filament-simple-otp::login.login.mobile') }}
                         </label>
                         <x-filament::input.wrapper :valid="!$errors->has('mobile')">
@@ -50,8 +49,7 @@
                     </div>
 
                     <div>
-                        <label for="otpCode"
-                            class="fi-fo-field-wrp-label block text-sm font-medium text-gray-950 dark:text-white mb-2">
+                        <label for="otpCode" class="block text-sm font-medium text-gray-700 dark:text-gray-200 mb-2">
                             {{ __('filament-simple-otp::login.login.otp_code') }}
                         </label>
                         <x-filament::input.wrapper :valid="!$errors->has('otpCode')">
@@ -65,26 +63,26 @@
 
                     {{-- Countdown Timer & Resend --}}
                     <div x-data="{
-                                seconds: @entangle('countdown'),
-                                timer: null,
-                                init() {
-                                    this.startTimer();
-                                    $watch('seconds', (val) => {
-                                        if (val > 0 && !this.timer) this.startTimer();
-                                    });
-                                },
-                                startTimer() {
-                                    clearInterval(this.timer);
-                                    this.timer = setInterval(() => {
-                                        if (this.seconds > 0) {
-                                            this.seconds--;
-                                        } else {
-                                            clearInterval(this.timer);
-                                            this.timer = null;
-                                        }
-                                    }, 1000);
-                                }
-                            }" class="text-center text-sm text-gray-500 dark:text-gray-400">
+                                                seconds: @entangle('countdown'),
+                                                timer: null,
+                                                init() {
+                                                    this.startTimer();
+                                                    $watch('seconds', (val) => {
+                                                        if (val > 0 && !this.timer) this.startTimer();
+                                                    });
+                                                },
+                                                startTimer() {
+                                                    clearInterval(this.timer);
+                                                    this.timer = setInterval(() => {
+                                                        if (this.seconds > 0) {
+                                                            this.seconds--;
+                                                        } else {
+                                                            clearInterval(this.timer);
+                                                            this.timer = null;
+                                                        }
+                                                    }, 1000);
+                                                }
+                                            }" class="text-center text-sm text-gray-500 dark:text-gray-400">
                         <template x-if="seconds > 0">
                             <p class="text-sm text-gray-600 dark:text-gray-400"
                                 x-text="'{{ __('filament-simple-otp::login.login.resend_wait', ['seconds' => '__SEC__']) }}'.replace('__SEC__', seconds)">
@@ -109,8 +107,7 @@
             {{-- Password Login Form --}}
             <form wire:submit="loginWithPassword" class="space-y-6">
                 <div>
-                    <label for="mobile_pwd"
-                        class="fi-fo-field-wrp-label block text-sm font-medium text-gray-950 dark:text-white mb-2">
+                    <label for="mobile_pwd" class="block text-sm font-medium text-gray-700 dark:text-gray-200 mb-2">
                         {{ __('filament-simple-otp::login.login.mobile') }}
                     </label>
                     <x-filament::input.wrapper :valid="!$errors->has('mobile')">
@@ -124,8 +121,7 @@
                 </div>
 
                 <div>
-                    <label for="password"
-                        class="fi-fo-field-wrp-label block text-sm font-medium text-gray-950 dark:text-white mb-2">
+                    <label for="password" class="block text-sm font-medium text-gray-700 dark:text-gray-200 mb-2">
                         {{ __('filament-simple-otp::login.login.password') }}
                     </label>
                     <x-filament::input.wrapper :valid="!$errors->has('password')">

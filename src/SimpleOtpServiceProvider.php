@@ -2,6 +2,8 @@
 
 namespace OoriyaP\FilamentSimpleOtp;
 
+use Filament\Support\Assets\Css;
+use Filament\Support\Facades\FilamentAsset;
 use Illuminate\Support\ServiceProvider;
 
 class SimpleOtpServiceProvider extends ServiceProvider
@@ -15,8 +17,17 @@ class SimpleOtpServiceProvider extends ServiceProvider
         // Load Migrations
         $this->loadMigrationsFrom(__DIR__.'/../database/migrations');
 
+        // Register Filament Assets
+        FilamentAsset::register([
+            Css::make('filament-simple-otp-styles', __DIR__.'/../resources/css/filament-simple-otp.compiled.css'),
+        ], package: 'ooriyap/filament-simple-otp');
+
         // Publish Assets and Configs
         if ($this->app->runningInConsole()) {
+            $this->publishes([
+                __DIR__.'/../resources/css/filament-simple-otp.compiled.css' => public_path('css/ooriyap/filament-simple-otp/filament-simple-otp-styles.css'),
+            ], 'filament-simple-otp-assets');
+
             $this->publishes([
                 __DIR__.'/../resources/views' => resource_path('views/vendor/filament-simple-otp'),
             ], 'filament-simple-otp-views');
@@ -43,3 +54,4 @@ class SimpleOtpServiceProvider extends ServiceProvider
         );
     }
 }
+
