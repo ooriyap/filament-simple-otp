@@ -1,3 +1,10 @@
+@push('styles')
+    <link rel="stylesheet"
+        href="{{ \Filament\Support\Facades\FilamentAsset::getStyleHref(
+            'filament-simple-otp-styles',
+            'ooriyap/filament-simple-otp'
+        ) }}">
+@endpush
 <x-filament-panels::page.simple>
     <div class="fi-login-content space-y-6">
         {{-- Filament Native Tabs --}}

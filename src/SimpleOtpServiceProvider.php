@@ -17,11 +17,6 @@ class SimpleOtpServiceProvider extends ServiceProvider
         // Load Migrations
         $this->loadMigrationsFrom(__DIR__.'/../database/migrations');
 
-        // Register Filament Assets
-        FilamentAsset::register([
-            Css::make('filament-simple-otp-styles', __DIR__.'/../resources/css/filament-simple-otp.compiled.css'),
-        ], package: 'ooriyap/filament-simple-otp');
-
         // Publish Assets and Configs
         if ($this->app->runningInConsole()) {
             $this->publishes([

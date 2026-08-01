@@ -1,9 +1,11 @@
 <?php
 
+use Filament\Tables\Table;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Livewire\Livewire;
 use OoriyaP\FilamentSimpleOtp\Drivers\ArrayDriver;
+use OoriyaP\FilamentSimpleOtp\Resources\AdminResource;
 use OoriyaP\FilamentSimpleOtp\Pages\Login;
 use OoriyaP\FilamentSimpleOtp\Services\OtpService;
 use OoriyaP\FilamentSimpleOtp\SimpleOtpPlugin;
@@ -84,4 +86,12 @@ it('enforces resend limits on OtpService', function () {
     expect($res1['success'])->toBeTrue()
         ->and($res2['success'])->toBeTrue()
         ->and($res3['success'])->toBeFalse();
+});
+
+it('groups admin resource row actions in an action group', function () {
+    $table = AdminResource::table(Table::make());
+    $actions = $table->getActions();
+
+    expect($actions)->toHaveCount(1)
+        ->and($actions[0])->toBeInstanceOf(\Filament\Actions\ActionGroup::class);
 });

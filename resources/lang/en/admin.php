@@ -8,6 +8,7 @@ return [
         'account' => 'Account Information',
         'security' => 'Password & Access Permissions',
     ],
+    'actions' => 'Actions',
     'fields' => [
         'avatar' => 'Avatar Image',
         'name' => 'Full Name',

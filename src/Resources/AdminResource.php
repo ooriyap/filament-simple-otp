@@ -2,6 +2,7 @@
 
 namespace OoriyaP\FilamentSimpleOtp\Resources;
 
+use Filament\Actions\ActionGroup;
 use Filament\Actions\DeleteAction;
 use Filament\Actions\EditAction;
 use Filament\Facades\Filament;
@@ -178,12 +179,14 @@ class AdminResource extends Resource
                     ->label(__('filament-simple-otp::admin.filters.is_active')),
             ])
             ->actions([
-                EditAction::make()
-                    ->hiddenLabel()
-                    ->iconSize(IconSize::Large),
-                DeleteAction::make()
-                    ->hiddenLabel()
-                    ->iconSize(IconSize::Large),
+                ActionGroup::make([
+                    EditAction::make()
+                        ->icon('heroicon-m-pencil-square'),
+                    DeleteAction::make()
+                        ->icon('heroicon-m-trash')
+                ])
+                    ->label(__('filament-simple-otp::admin.actions'))
+                    ->dropdown(),
             ]);
     }
 
