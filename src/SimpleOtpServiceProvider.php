@@ -14,6 +14,12 @@ class SimpleOtpServiceProvider extends ServiceProvider
         $this->loadViewsFrom(__DIR__.'/../resources/views', 'filament-simple-otp');
         $this->loadTranslationsFrom(__DIR__.'/../resources/lang', 'filament-simple-otp');
 
+        // Register Filament Assets
+        FilamentAsset::register([
+            Css::make('filament-simple-otp-styles', __DIR__.'/../resources/css/filament-simple-otp.compiled.css')
+                ->loadedOnRequest(),
+        ], 'ooriyap/filament-simple-otp');
+
         // Load Migrations
         $this->loadMigrationsFrom(__DIR__.'/../database/migrations');
 
